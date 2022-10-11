@@ -19,4 +19,4 @@ COPY --from=alpine /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 COPY --from=alpine /usr/share/zoneinfo /usr/share/zoneinfo
 COPY --from=builder /app/prometheus_bot /prometheus_bot
 USER nobody
-CMD ["/prometheus_bot"]
+CMD ["/prometheus_bot", "-c", "/etc/prometheus_bot/config.yaml", "-l", ":9087"]
